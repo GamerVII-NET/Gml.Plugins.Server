@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4A81AA73-EBE3-435B-8D59-A01D5A65A1B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0FDEC4B9-8715-473E-AC55-03A71BEA96F3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{8A9B6410-245B-401B-93D2-200A339632A3}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		.env = .env
+		.env.template = .env.template
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gml.Plugins.Server", "src\Gml.Plugins.Server\Gml.Plugins.Server.csproj", "{D2158691-A7DB-4998-A83E-888BF81E532C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2158691-A7DB-4998-A83E-888BF81E532C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2158691-A7DB-4998-A83E-888BF81E532C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2158691-A7DB-4998-A83E-888BF81E532C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2158691-A7DB-4998-A83E-888BF81E532C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D2158691-A7DB-4998-A83E-888BF81E532C} = {4A81AA73-EBE3-435B-8D59-A01D5A65A1B2}
+	EndGlobalSection
+EndGlobal

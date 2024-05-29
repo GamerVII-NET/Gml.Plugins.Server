@@ -1,0 +1,6 @@
+@Gml.Plugins.Server_HostAddress = http://localhost:5229
+
+GET {{Gml.Plugins.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

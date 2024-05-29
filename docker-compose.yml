@@ -1,0 +1,12 @@
+services:
+  gml.plugins.server:
+    image: gml-plugins-server
+    container_name:  gml-plugins-server
+    ports:
+      - 6000:8080
+    build:
+      context: .
+      dockerfile: src/Gml.Plugins.Server/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080;
