@@ -10,5 +10,5 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:8080;
-      - Application=${Application}";
-      - GitHubToken=${GitHubToken}";
+      - Application=${Application}
+      - GitHubToken=${GitHubToken}

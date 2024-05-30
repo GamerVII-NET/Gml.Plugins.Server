@@ -1,7 +1,6 @@
-using System.IO.Compression;
 using Gml.Plugins.Server.Core;
-using Gml.Plugins.Server.Models;
 using Octokit;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -14,6 +13,18 @@ builder.Services.AddSingleton<GitHubClient>(serviceProvider =>
     return new GitHubClient(productInformation) { Credentials = credentials };
 });
 
+// Adding CORS service and defining a policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader();
+        });
+});
+
 var app = builder.Build();
 
 await PrepareInstallation.Install(app.Services.GetRequiredService<GitHubClient>());
@@ -24,15 +35,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.RegisterEndpoints();
 app.UseHttpsRedirection();
 
-app.Run();
+// Applying the CORS policy to the app
+app.UseCors("AllowAllOrigins");
 
-public class PluginProviderCollection : List<GmlPlugin>
-{
-    public async Task Reload(GitHubClient client)
-    {
-        AddRange(await PrepareInstallation.Install(client));
-    }
-}
+app.RegisterEndpoints();
+
+app.Run();
