@@ -36,7 +36,11 @@ public class PluginsHandler
         {
             return Results.NotFound();
         }
+        
+        var pathToFile = $"{versionData.Folder}.zip";
+        var mimeType = "application/octet-stream";
+        var fileName = $"plugin-{name}-{version}.zip";
 
-        return Results.File($"{versionData.Folder}.zip");
+        return Results.File(await File.ReadAllBytesAsync(pathToFile), mimeType, fileName);
     }
 }
